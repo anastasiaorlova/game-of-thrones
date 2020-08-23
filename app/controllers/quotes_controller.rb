@@ -20,6 +20,13 @@ def create
     end
 end 
 
+def destroy
+    quote = Quote.find_by(id: params[:id])
+    quote.destroy
+
+    render json: { message: "Nice, it's gone" }
+end
+
 def update
     quote = Quote.find_by(id: params[:id])
     quote.update(like: params[:like])
